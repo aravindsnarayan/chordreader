@@ -1,0 +1,14 @@
+services:
+  torbox-addon:
+    build: .
+    image: bitchord-torbox-addon:latest
+    container_name: bitchord-torbox-addon
+    env_file: .env
+    ports:
+      - "8080:8080"
+    volumes:
+      - torbox-data:/data
+    restart: unless-stopped
+
+volumes:
+  torbox-data:
